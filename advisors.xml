@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<advisors>
+  <advisors>
+    <graphic>
+      <graphic>advisors.png</graphic>
+    </graphic>
+    <menuButtons>
+      <chiefAdvisor>Chief Advisor</chiefAdvisor>
+      <educationAdvisor>Education Advisor</educationAdvisor>
+      <entertainmentAdvisor>Entertainment Advisor</entertainmentAdvisor>
+      <financialAdvisor>Financial Advisor</financialAdvisor>
+      <healthAdvisor>Health Advisor</healthAdvisor>
+      <imperialAdvisor>Imperial Advisor</imperialAdvisor>
+      <laborAdvisor>Labor Advisor</laborAdvisor>
+      <populationAdvisor>Population Advisor</populationAdvisor>
+      <provinceAdvisor>Province Advisor</provinceAdvisor>
+      <ratingsAdvisor>Ratings Advisor</ratingsAdvisor>
+      <religionAdvisor>Religion Advisor</religionAdvisor>
+      <researchAdvisor>Research Advisor</researchAdvisor>
+      <resourceAdvisor>Resource Advisor</resourceAdvisor>
+      <securityAdvisor>Security Advisor</securityAdvisor>
+    </menuButtons>
+  </advisors>
+</advisors>

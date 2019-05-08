@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<knowledgeTree>
+  <graphic>knowledgeTree.png</graphic>
+  <Mining>
+    <menuButtons>
+      <masonry>Masonry</masonry>
+      <gravelPit>Gravel Pit</gravelPit>
+      <minerals>Minerals</minerals>
+      <entertainment5>Colosseum </entertainment5>
+    </menuButtons>
+  </Mining>
+  <Military>
+    <menuButtons>
+      <training>Training</training>
+      <armory>Armory</armory>
+      <tactics>Tactics</tactics>
+      <asdfa>asdfasdf</asdfa>
+    </menuButtons>
+  </Military>
+</knowledgeTree>

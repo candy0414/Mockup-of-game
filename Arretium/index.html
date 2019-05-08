@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="./Qgis2threejs.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/style-subwindow.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/nestedsidemenu.css">
+<script src="../assets/js/jquery-1.11.1.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="./threejs/three.min.js"></script>
+<script src="./threejs/OrbitControls.js"></script>
+<script src="./Qgis2threejs.js"></script>
+<script src="../assets/js/action-arretium.js"></script>
+<script src="../assets/js/action-empire-column.js"></script>
+</head>
+<body style="overflow: hidden">
+<div id="view1">
+  <!-- <div id="label"></div> -->
+  
+</div>
+
+<div id="columnButton" style="position: absolute;float: left; top: 20px;z-index: 100;margin-top:-10px">
+  <div class="nestedsidemenu" id="columncontent">
+    <ul>
+    </ul>
+    <br style="clear: left" />
+  </div>
+</div>
+
+<div class="title" style="position: absolute;float: left; top: 1%; left: 40%; z-index: 100;  text-align: center">
+  <h1>Italia-Arretium</h1>
+</div>
+
+<div id="advisors" style="position: absolute;float: left; top: 20px;z-index: 90; margin-top: -10px; left: 150px">
+  </div>
+
+  <div id="tree" style="position: absolute;float: left; top: 20px;z-index: 90; margin-top: -10px; left: 270px">
+    <div class="nestedsidemenu" id="treecontent">
+      <ul>
+      </ul>
+      <br style="clear: left" />
+    </div>
+    <!-- <img src="images/buttons/knowledgeTree.png" style="width: 100px; height: 70px">
+    <img src="images/buttons/knowledgeTreeX.png" style="width: 100px; height: 70px; display: none"> -->
+  </div>
+
+  <div id="masterGameControlButton" style="position: absolute;float: left; bottom: 20px;z-index: 100; left:10px">
+  </div>
+
+  <div id="pause" style="position: absolute;float: left; bottom: 70px;z-index: 90; left:300px">
+    <img id="pausenormal" src="../images/buttons/pause.png" style="width: 100px; height: 70px">
+    <img id="pauseactive" src="../images/buttons/pauseX.png" style="width: 100px; height: 70px; display: none">
+  </div>
+
+  <div id="play" style="position: absolute;float: left; bottom: 70px;z-index: 90; left:200px">
+    <img id="playnormal" src="../images/buttons/play.png" style="width: 100px; height: 70px; display: none">
+    <img id="playactive" src="../images/buttons/playX.png" style="width: 100px; height: 70px;">
+  </div>
+
+  <div id="speed" style="position: absolute;float: left; bottom: 30px;z-index: 90; left:400px">
+    <div id="speedUp">
+      <img id="speedUpnormal" src="../images/buttons/speedUp.png" style="width: 100px; height: 70px">
+      <img id="speedUpactive" src="../images/buttons/speedUpX.png" style="width: 100px; height: 70px; display: none">
+    </div>
+    <div id="speedDown">
+      <img id="speedDownnormal" src="../images/buttons/speedDown.png" style="width: 100px; height: 70px">
+      <img id="speedDownactive" src="../images/buttons/speedDownX.png" style="width: 100px; height: 70px; display: none">
+    </div>
+  </div>
+
+  <div id="help" style="position: absolute;float: right; bottom: 20px;z-index: 100; right:10px">
+  </div>
+
+<div id="sub-window" style="top: 10px">
+      <div id="map-control">
+<!--         <div id="view2">
+        </div> -->
+        <div>
+        <img id="insetMap" src="../images/maps/arretium-2D-plan-view.jpg">
+        <div id="northarrow" style="top:70px; left: 90px"></div>
+      </div>
+        <div id="empire" onclick="showEmpire()">
+          Empire
+        </div>
+        <div id="province" onclick="showProvince()">
+          Province: Italia
+        </div>
+        <div id="city" onclick="showCity()" style="background-color: yellow">
+          City: Arretium
+        </div>
+        <div id="trade" onclick="showTrade()">
+          Trade Routes: Arretium
+        </div>
+<!--         <div id="normal">
+          Normal View
+        </div> -->
+        <div id="zoom1">Zoom 1</div>
+        <div id="zoom2" style="background-color: yellow">Zoom 2</div>
+        <div id="zoom3" onclick="showNormal()">Zoom 3</div>
+      </div>
+      <img id="downtriangle" src="../images/triangle/down.png" style="display: none" onclick='showSub()'>
+      <img id="uptriangle" src="../images/triangle/up.png" onclick="closeSub()">
+    </div>
+<!-- Master Modal -->
+  <div style="margin-top: 150px;" class="modal fade" id="masterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" style="background-color: rgb(255,255,255, 0.7)">
+        <div id="masterbody" class="modal-body" style="text-align: center">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button><br><br>
+        </div><br><br><br>
+      </div>
+    </div>
+  </div>
+  <!-- Help -->
+  <div id="helpcolumn" style="position: absolute;float: right; top: 20px;z-index: 90; margin-top: -10px; right: 300px; text-align: center; display: none; width: 350px">
+  </div>
+  <!--Advisors-->
+  <div id="advisorscolumn" style="position: absolute;float: left; top: 20px;z-index: 90; margin-top: -10px; left: 250px; text-align: center; display: none; width: 350px">
+  </div>
+  
+<!-- popup -->
+<div id="popup">
+  <div id="closebtn">&times;</div>
+  <div id="popupbar"></div>
+  <div id="popupbody">
+    <div id="popupcontent"></div>
+
+    <!-- query result -->
+    <div id="queryresult">
+      <table id="qr_layername_table">
+        <caption>Layer name</caption>
+        <tr><td id="qr_layername"></td></tr>
+      </table>
+
+      <table id="qr_coords_table">
+        <caption>Clicked coordinates</caption>
+        <tr><td id="qr_coords"></td></tr>
+      </table>
+
+      <!-- camera actions -->
+      <div class="action-btn action-zoom" onclick="app.cameraAction.zoomIn(); app.closePopup();">Zoom in here</div>
+      <div class="action-btn action-move" onclick="app.cameraAction.move(); app.closePopup();">Move here</div>
+      <div class="action-btn action-orbit" onclick="app.cameraAction.orbit(); app.closePopup();">Orbit around here</div>
+
+      <!-- attributes -->
+      <table id="qr_attrs_table">
+        <caption>Attributes</caption>
+      </table>
+    </div>
+
+    <!-- page info -->
+    <div id="pageinfo">
+      <h1>Current View URL</h1>
+      <div><input id="urlbox" type="text"></div>
+
+      <h1>Usage</h1>
+      <table id="usage">
+        <tr><td colspan="2" class="star">Mouse</td></tr>
+        <tr><td>Left button + Move</td><td>Orbit</td></tr>
+        <tr><td>Mouse Wheel</td><td>Zoom</td></tr>
+        <tr><td>Right button + Move</td><td>Pan</td></tr>
+
+        <tr><td colspan="2" class="star">Keys</td></tr>
+        <tr><td>Arrow keys</td><td>Move Horizontally</td></tr>
+        <tr><td>Shift + Arrow keys</td><td>Orbit</td></tr>
+        <tr><td>Ctrl + Arrow keys</td><td>Rotate</td></tr>
+        <tr><td>Shift + Ctrl + Up / Down</td><td>Zoom In / Out</td></tr>
+        <tr><td>L</td><td>Toggle Label Visibility</td></tr>
+        <tr><td>R</td><td>Start / Stop Rotate Animation (Orbiting)</td></tr>
+        <tr><td>W</td><td>Wireframe Mode</td></tr>
+        <tr><td>Shift + R</td><td>Reset Camera Position</td></tr>
+        <tr><td>Shift + S</td><td>Save Image</td></tr>
+      </table>
+
+      <h1>About</h1>
+      <div id="about">
+        This page was made with <a href="https://www.qgis.org/" target="_blank">QGIS</a> and <a href="https://github.com/minorua/Qgis2threejs" target="_blank">Qgis2threejs</a> plugin.
+        Dependent JavaScript libraries are
+        <a href="https://threejs.org/" target="_blank">three.js</a>
+        <span id="lib_proj4js"> and <a href="https://trac.osgeo.org/proj4js/" target="_blank">Proj4js</a></span>
+        .
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- progress bar -->
+<div id="progress"><div id="bar"></div></div>
+
+<!-- footer -->
+<div id="footer"><span id="infobtn"><img src="./Qgis2threejs.png"></span> </div>
+
+<script>
+Q3D.Config.allVisible = true;
+Q3D.Config.northArrow.visible = true;
+Q3D.Config.northArrow.color = 0xffffff;
+if (typeof proj4 === "undefined") document.getElementById("lib_proj4js").style.display = "none";
+
+var app = Q3D.application,
+    container = document.getElementById("view1");
+
+app.init(container);           // initialize application
+
+// load the scene
+app.loadJSONFile("./data/index/scene.json", function () {
+  app.start();
+
+  // North arrow inset
+  if (Q3D.Config.northArrow.visible) app.buildNorthArrow(document.getElementById("northarrow"), app.scene.userData.rotation);
+});
+
+// var app1 = Q3D.application,
+//     container = document.getElementById("view2");
+
+// app1.init(container);           // initialize application
+
+// // load the scene
+// app1.loadJSONFile("./data/index/scene.json", function () {
+//   app1.start();
+
+//   // North arrow inset
+  // if (Q3D.Config.northArrow.visible) app1.buildNorthArrow(document.getElementById("northarrow"), app1.scene.userData.rotation);
+// });
+
+// document.getElementById("infobtn").onclick = app1.showInfo.bind(app1);
+
+
+var flag = 0;
+window.addEventListener('mousedown', function(){   
+  flag = 0;
+}, false);
+window.addEventListener('mousemove', function(){   
+  flag = 1;
+}, false);
+window.addEventListener('mouseup', function(){   
+   if(flag === 0){
+        console.log("click");
+    }
+    else if(flag === 1){
+        console.log("drag");
+      }
+}, false);
+</script>
+</body>
+</html>

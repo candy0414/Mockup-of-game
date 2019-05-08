@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<help>
+  <help>
+    <graphic>
+      <graphic>help.png</graphic>
+    </graphic>
+    <menuButtons>
+      <generalInformation>General Information</generalInformation>
+      <userInterfaceAndFeedback>User Interface and Feedback</userInterfaceAndFeedback>
+      <homesAndPeople>Homes and People</homesAndPeople>
+      <work>Work</work>
+      <farmingAndGathering>Farming and Gathering</farmingAndGathering>
+      <rawMaterialsAndIndustry>Raw Materials and Industry</rawMaterialsAndIndustry>
+      <marketsTradeAndStorage>Markets Trade and Research</marketsTradeAndStorage>
+      <Infrastructure>Infrastructure</Infrastructure>
+      <services>Services</services>
+      <governingAndFinances>Governing and Finances</governingAndFinances>
+      <advisors>Advisors</advisors>
+      <military>Military</military>
+      <empireLevelAndFavor>Empire Level and Favor</empireLevelAndFavor>
+      <winningAndLosing>Winning and Losing</winningAndLosing>
+      <governorCredits>Governor Credits</governorCredits>
+    </menuButtons>
+  </help>
+</help>

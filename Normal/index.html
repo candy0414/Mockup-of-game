@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/style-main.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/style-subwindow.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/nestedsidemenu.css">
+<script src="../assets/js/jquery-1.11.1.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet-src.js"></script>
+<script src="../assets/js/action-normal.js"></script>
+<script src="../assets/js/action-empire-column.js"></script>
+
+<style>
+.dot {
+  height: 50px;
+  width: 50px;
+  background-color: yellow;
+  border-radius: 50%;
+  opacity: 0.3;
+}
+.popup {
+  background-color: white;
+  opacity: 0.7;
+  border-radius: 5px;
+  width: 450px;
+  height: 300px;
+}
+
+</style>
+
+</head>
+<body style="overflow: hidden">
+  <!-- <img id="Arretium-Zoom-Level3" src="../images/maps/Arretium-Zoom-Level3.jpg"> -->
+  <div id="Arretium-Zoom-Level3" style="background-image: url(../images/maps/Arretium-Zoom-Level3.jpg); height: 1731px; background-position: center; background-repeat: no-repeat; background-size: 2499px 1731px"></div>
+
+  <div class="title" style="position: absolute;float: left; top: 1%; left: 40%; z-index: 100;  text-align: center">
+    <h1>Italia-Arretium</h1>
+  </div>
+
+  <div class="dot" style="position: absolute;float: left; top: 380px; left: 700px; z-index: 100; margin-top: -10px">
+  </div>
+
+  <div class="popup" style="position: absolute;float: left; top: 380px; left: 760px; z-index: 100; margin-top: -10px; padding: 20px; text-align: center;display: none">
+    <span aria-hidden="true" style="float: right;">&times;</span>
+    <h1>Household information <br> goes in here.</h1>
+  </div>
+
+  <div id="columnButton" style="position: absolute;float: left; top: 20px;z-index: 100; margin-top: -10px">
+    <div class="nestedsidemenu" id="columncontent">
+      <ul>
+      </ul>
+      <br style="clear: left" />
+    </div>
+  </div>
+
+  <div id="advisors" style="position: absolute;float: left; top: 20px;z-index: 90; margin-top: -10px; left: 150px">
+  </div>
+
+  <div id="tree" style="position: absolute;float: left; top: 20px;z-index: 90; margin-top: -10px; left: 270px">
+    <div class="nestedsidemenu" id="treecontent">
+      <ul>
+      </ul>
+      <br style="clear: left" />
+    </div>
+    <!-- <img src="images/buttons/knowledgeTree.png" style="width: 100px; height: 70px">
+    <img src="images/buttons/knowledgeTreeX.png" style="width: 100px; height: 70px; display: none"> -->
+  </div>
+
+  <div id="masterGameControlButton" style="position: absolute;float: left; bottom: 20px;z-index: 100; left:10px">
+  </div>
+
+  <div id="pause" style="position: absolute;float: left; bottom: 70px;z-index: 90; left:300px">
+    <img id="pausenormal" src="../images/buttons/pause.png" style="width: 100px; height: 70px">
+    <img id="pauseactive" src="../images/buttons/pauseX.png" style="width: 100px; height: 70px; display: none">
+  </div>
+
+  <div id="play" style="position: absolute;float: left; bottom: 70px;z-index: 90; left:200px">
+    <img id="playnormal" src="../images/buttons/play.png" style="width: 100px; height: 70px; display: none">
+    <img id="playactive" src="../images/buttons/playX.png" style="width: 100px; height: 70px;">
+  </div>
+
+  <div id="speed" style="position: absolute;float: left; bottom: 30px;z-index: 90; left:400px">
+    <div id="speedUp">
+      <img id="speedUpnormal" src="../images/buttons/speedUp.png" style="width: 100px; height: 70px">
+      <img id="speedUpactive" src="../images/buttons/speedUpX.png" style="width: 100px; height: 70px; display: none">
+    </div>
+    <div id="speedDown">
+      <img id="speedDownnormal" src="../images/buttons/speedDown.png" style="width: 100px; height: 70px">
+      <img id="speedDownactive" src="../images/buttons/speedDownX.png" style="width: 100px; height: 70px; display: none">
+    </div>
+  </div>
+
+  <div id="help" style="position: absolute;float: right; bottom: 20px;z-index: 100; right:10px">
+  </div>
+
+  <div id="sub-window" style="top:10px">
+    <div id="map-control">
+      <img id="insetMap" src="../images/maps/Arretium-Zoom-Level3.jpg">
+      <div id="empire" onclick="showEmpire()">
+        Empire
+      </div>
+      <div id="province" onclick="showProvince()">
+        Province: Italia
+      </div>
+      <div id="city" onclick="showCity()" style="background-color: yellow">
+        City: Arretium
+      </div>
+      <div id="trade" onclick="showTrade()">
+        Trade Routes: Arretium
+      </div>
+<!--       <div id="normal" onclick="showNormal()">
+        Normal View
+      </div> -->
+      <div id="zoom1">Zoom 1</div>
+      <div id="zoom2" onclick="showZoom2()">Zoom 2</div>
+      <div id="zoom3" style="background-color: yellow">Zoom 3</div>
+    </div>
+    <img id="downtriangle" src="../images/triangle/down.png"  style="display: none" onclick='showSub()'>
+    <img id="uptriangle" src="../images/triangle/up.png"   onclick="closeSub()">
+  </div>
+  <!-- Master Modal -->
+  <div style="margin-top: 150px;" class="modal fade" id="masterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content" style="background-color: rgb(255,255,255, 0.7)">
+        <div id="masterbody" class="modal-body" style="text-align: center">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button><br><br>
+        </div><br><br><br>
+      </div>
+    </div>
+  </div>
+  <!-- Help -->
+  <div id="helpcolumn" style="position: absolute;float: right; top: 20px;z-index: 90; margin-top: -10px; right: 300px; text-align: center; display: none; width: 350px">
+  </div>
+  <!--Advisors-->
+  <div id="advisorscolumn" style="position: absolute;float: left; top: 20px;z-index: 90; margin-top: -10px; left: 250px; text-align: center; display: none; width: 350px">
+  </div>
+
+</body>
+<script type="text/javascript">
+  var demo = document.getElementById('Arretium-Zoom-Level3'),
+    _tmp = window.getComputedStyle(demo,null).backgroundPosition.trim().split(/\s+/),
+    positions = {
+        'left' : _tmp[0],
+        'top' : _tmp[1]
+    };
+    console.log(positions, positions.left, positions.top);
+</script>
+</html>

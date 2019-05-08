@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<masterGameControl>
+  <masterGameControl>
+    <graphic>
+      <graphic>masterGameControl.png</graphic>
+    </graphic>
+    <menuButtons>
+      <keepPlaying>Keep Playing</keepPlaying>
+      <restartGame>Restart Game</restartGame>
+      <save>Save</save>
+      <load>Load</load>
+      <newGame>New Game</newGame>
+      <settings>Settings</settings>
+      <quit>Quit</quit>
+    </menuButtons>
+  </masterGameControl>
+</masterGameControl>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<buttonColumn>
+  <Agriculture>
+    <graphic>
+      <graphic>agriculture.png</graphic>
+    </graphic>
+    <menuButtons>
+      <agrigulture1>Barley Farm </agrigulture1>
+      <agrigulture2>Beehives </agrigulture2>
+      <agrigulture3>Camel Farm</agrigulture3>
+      <agrigulture4>Cider Farm </agrigulture4>
+      <agrigulture5>Cotton Plantation</agrigulture5>
+      <agrigulture6>Cow Farm </agrigulture6>
+      <agrigulture7>Date Farm </agrigulture7>
+      <agrigulture8>Fig Farm </agrigulture8>
+      <agrigulture9>Fish and Mollusc Farm</agrigulture9>
+      <agrigulture10>Flax Farm </agrigulture10>
+      <agrigulture11>Game Farm </agrigulture11>
+      <agrigulture12>Gardener</agrigulture12>
+      <agrigulture13>Goat Farm </agrigulture13>
+      <agrigulture14>Hemp Plantation </agrigulture14>
+      <agrigulture15>Herb Garden  </agrigulture15>
+      <agrigulture16>Hunting Hut </agrigulture16>
+      <agrigulture17>Latifundium  </agrigulture17>
+      <agrigulture18>Maize Farm</agrigulture18>
+      <agrigulture19>Milk Boiling Shed </agrigulture19>
+      <agrigulture20>Millet Farm </agrigulture20>
+      <agrigulture21>Nut / Almond Farm </agrigulture21>
+      <agrigulture22>Oak Grab Farm</agrigulture22>
+      <agrigulture23>Olive Farm </agrigulture23>
+      <agrigulture24>Orchard</agrigulture24>
+      <agrigulture25>Papyrus Plantation  </agrigulture25>
+      <agrigulture26>Pig Farm  </agrigulture26>
+      <agrigulture27>Poultry Farm </agrigulture27>
+      <agrigulture28>Rice Farm  </agrigulture28>
+      <agrigulture29>Sheep Farm  </agrigulture29>
+      <agrigulture30>Silk Farm</agrigulture30>
+      <agrigulture31>Snail Garden </agrigulture31>
+      <agrigulture32>Spice Plantation</agrigulture32>
+      <agrigulture33>Stud Farm </agrigulture33>
+      <agrigulture34>Vegetable Farm</agrigulture34>
+      <agrigulture35>Wharf</agrigulture35>
+      <agrigulture36>Wheat Farm</agrigulture36>
+      <agrigulture37>Vineyard </agrigulture37>
+    </menuButtons>
+  </Agriculture>
+  <Entertainment>
+    <graphic>
+      <graphic>entertainment.png</graphic>
+    </graphic>
+    <menuButtons>
+      <entertainment1>Actor Colony </entertainment1>
+      <entertainment2>Animal Trainer School<animalTrainerSchool1>Reptiles</animalTrainerSchool1><animalTrainerSchool2>Birds</animalTrainerSchool2><animalTrainerSchool3>Mamals</animalTrainerSchool3></entertainment2>
+      <entertainment3>Amphiteatre</entertainment3>
+      <entertainment4>Charioteer School </entertainment4>
+      <entertainment5>Colosseum </entertainment5>
+      <entertainment6>Gladiator School </entertainment6>
+      <entertainment7>Hippodrome  </entertainment7>
+      <entertainment8>Menagerie </entertainment8>
+      <entertainment9>Odeum </entertainment9>
+      <entertainment10>Stadium</entertainment10>
+      <entertainment11>Theatre</entertainment11>
+    </menuButtons>
+  </Entertainment>
+</buttonColumn>
